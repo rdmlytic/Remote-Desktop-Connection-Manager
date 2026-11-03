@@ -1,251 +1,59 @@
-# 🎬 Radarr — Movie Collection Manager
+# Remote Desktop Connection Manager
 
-### Automate Your Movie Library with Smart Management and Quality Upgrades
+## Introduction
 
-<p align="center">
-  <strong>Discover · Organize · Manage · Upgrade</strong>
-</p>
+Remote Desktop Connection Manager is a Windows application for managing multiple Remote Desktop Protocol (RDP) connections through a centralized interface. It helps system administrators, IT professionals, and network engineers organize remote access to Windows servers, virtual machines, and workstations without maintaining separate Remote Desktop Connection windows.
 
-<p align="center">
-  A powerful movie collection manager for organizing your digital library, monitoring releases, and automating movie imports.
-</p>
+The software provides centralized RDP connection management, allowing users to create server profiles, organize remote computers into hierarchical groups, and configure connection properties. Administrators can manage multiple remote desktop connections using predefined settings for authentication, screen resolution, session behavior, and local resource redirection.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-blue" alt="Supported platforms">
-  <img src="https://img.shields.io/badge/Category-Movie%20Management-purple" alt="Movie management">
-  <img src="https://img.shields.io/badge/License-GPL--3.0-green" alt="GPL-3.0 License">
-</p>
+Remote Desktop Connection Manager is particularly useful for Windows Server administration, enterprise network management, and IT infrastructure maintenance. For example, an administrator responsible for several Windows Server environments can organize production servers, development machines, database systems, and domain controllers into separate connection groups.
 
----
+The application supports simultaneous remote desktop sessions, enabling administrators to switch between connected systems within a single workspace. This functionality simplifies routine operations such as monitoring server performance, troubleshooting Windows services, checking event logs, and performing remote system configuration.
 
-## 📖 Overview
+RDP connection profiles can inherit settings from parent groups, reducing repetitive configuration across large server environments. Individual settings can be adjusted when specific systems require different authentication or display parameters.
 
-**Radarr** is an open-source movie collection manager designed for users who want to organize and automate their personal movie libraries.
+By combining remote desktop session management, server organization, and reusable connection settings, Remote Desktop Connection Manager provides a practical solution for administering distributed Windows infrastructure and maintaining consistent remote access workflows.
 
-It integrates with supported download clients and indexers to search for movie releases, manage downloads, import completed files, organize movie folders, and upgrade existing files when a higher-quality version becomes available.
+## RDP Connection Setup and Server Management
 
-Whether you're building a home media server or maintaining a large movie collection, Radarr provides a centralized interface for managing your movies and their quality profiles.
+Configuring Remote Desktop Connection Manager begins with creating a connection file containing the server groups and remote computer profiles required for daily administration. A structured configuration makes it easier to manage multiple RDP connections across Windows Server environments and enterprise networks.
 
-**Official project:** https://github.com/Radarr/Radarr
+Administrators can create hierarchical server groups based on infrastructure roles, departments, geographical locations, or deployment environments. For example, a connection structure might contain `Production Servers`, `Development Servers`, `Database Servers`, and `Domain Controllers`.
 
----
+Each remote desktop connection profile requires a target hostname or IP address. Additional RDP configuration options determine authentication behavior, display preferences, and local resource availability.
 
-## ✨ Key Features
+Important connection settings include:
 
-| Feature | Description |
-|---|---|
-| 🎥 Movie Management | Add, track, and organize movies in one library. |
-| 🔎 Release Search | Search for available releases through configured indexers. |
-| ⚙️ Automation | Monitor feeds and automate supported download workflows. |
-| 📂 Library Organization | Automatically import and organize completed downloads. |
-| 🎞️ Quality Profiles | Configure preferred qualities and release requirements. |
-| ⬆️ Quality Upgrades | Upgrade existing movie files when better releases match your settings. |
-| 🔄 Download Integration | Connect compatible download clients, including supported BitTorrent and Usenet applications. |
-| 🏷️ Metadata Management | Work with movie information, artwork, and library metadata. |
-| 🔔 Media Server Integration | Integrate with supported media applications for notifications and library updates. |
-| 🖥️ Cross-Platform Support | Available for Windows, Linux, macOS, and selected other platforms. |
+- Server Address: Specifies the hostname, fully qualified domain name, or IP address of the remote Windows computer.
+- User Credentials: Defines the Windows account used to authenticate the remote desktop session.
+- Display Configuration: Controls screen resolution, color depth, and remote desktop presentation.
+- Local Resource Redirection: Configures supported clipboard, keyboard, and device redirection options.
+- Group Inheritance: Applies shared RDP connection settings to multiple servers within the same group.
 
----
+For example, an administrator managing twenty Windows Server machines can configure common display preferences at the group level while assigning individual authentication settings to selected servers.
 
-## 🚀 Getting Started
+Before connecting, verify that Remote Desktop is enabled on the target computer, the account has appropriate permissions, and network security rules permit RDP traffic.
 
-### 1. Download Radarr
+Save the connection configuration after making changes. Test individual server profiles to confirm that hostname resolution, authentication, and remote desktop connectivity operate correctly.
 
-Get the latest stable release and installation instructions from the official project resources.
+## Remote Desktop Session Management and Troubleshooting
 
-- **Official Website:** https://radarr.video/
-- **GitHub Repository:** https://github.com/Radarr/Radarr
-- **Installation Guide:** https://wiki.servarr.com/radarr/installation
-- **Latest Releases:** https://github.com/Radarr/Radarr/releases
+Remote Desktop Connection Manager provides a centralized workspace for controlling multiple active RDP sessions. Administrators can connect to configured Windows computers, switch between remote desktops, and perform maintenance tasks without repeatedly opening separate connection windows.
 
-Always download software from trusted sources and review the installation instructions for your operating system.
+A typical remote administration workflow involves connecting to several Windows Server systems to inspect services, review system events, or verify application availability. Each remote session operates within the security context of the authenticated Windows account.
 
-### 2. Install and Launch
+When an RDP connection fails, troubleshooting should begin with basic network and authentication checks.
 
-Choose the installation method appropriate for your environment.
+Common diagnostic procedures include:
 
-Radarr supports several deployment options, including:
+- Connection Timeout: Verify network connectivity, DNS resolution, firewall rules, and the availability of TCP port 3389 when the default RDP port is used.
+- Authentication Failure: Confirm account credentials, remote logon permissions, and applicable Windows security policies.
+- Remote Desktop Unavailable: Check whether Remote Desktop is enabled and the target operating system supports incoming RDP sessions.
+- Display Problems: Review screen resolution, color depth, and remote desktop display settings.
+- Disconnected Sessions: Determine whether network interruptions, session policies, or server resource limitations caused the disconnection.
 
-- Windows installation
-- Linux installation
-- macOS installation
-- Manual installation for supported systems
-- Third-party Docker images
+For secure remote desktop administration, use Network Level Authentication where supported, restrict privileged account access, and protect stored connection credentials.
 
-**Note:** The Radarr team does not provide an official Docker image. If you choose Docker, review the official documentation and select a trusted third-party image.
+Administrators should distinguish between disconnecting and signing out. Disconnecting generally leaves the remote user session running, while signing out terminates that session and its associated applications.
 
-### 3. Open the Web Interface
-
-After installation and startup, open the Radarr web interface in your browser.
-
-The default local address is:
-
-`http://localhost:7878`
-
-If Radarr is running on another machine, use the appropriate server address and configured port.
-
----
-
-## ⚙️ Configuration
-
-To get the most out of Radarr, configure the following components.
-
-### Movie Library
-
-Select your movie library folder and configure the root directories where movies should be organized.
-
-### Indexers
-
-Configure compatible indexers to discover available movie releases. Availability and setup requirements depend on the indexer and your environment.
-
-### Download Clients
-
-Connect a supported download client to allow Radarr to manage compatible download workflows.
-
-### Quality Profiles
-
-Choose the quality levels, formats, and release preferences that match your requirements.
-
-### Media Management
-
-Configure naming conventions, file organization, import behavior, and other library management settings.
-
-### Integrations
-
-Set up supported notifications and media-server integrations if you want your library updates reflected in other applications.
-
-For detailed configuration instructions, consult the official Radarr documentation.
-
----
-
-## 🧩 How Radarr Works
-
-A typical Radarr workflow looks like this:
-
-1. **Add a movie** to your collection.
-2. **Configure your preferences** for quality and availability.
-3. **Search for releases** using configured indexers and monitoring options.
-4. **Manage downloads** through a compatible download client.
-5. **Import completed files** into the appropriate movie library folder.
-6. **Maintain your collection** with metadata, organization, and quality upgrades.
-
-The exact workflow depends on your configuration, available indexers, download clients, and quality profiles.
-
----
-
-## 💻 System Compatibility
-
-Radarr supports multiple operating systems and deployment environments.
-
-| Platform | Availability |
-|---|---|
-| Windows | Supported |
-| Linux | Supported |
-| macOS | Supported |
-| Raspberry Pi and selected ARM systems | Depends on the supported build and architecture |
-| Docker | Supported through third-party images |
-
-Check the official installation guide for current requirements, supported architectures, and platform-specific instructions.
-
----
-
-## 🛠️ Troubleshooting
-
-### Radarr cannot connect to a download client
-
-- Verify that the client is running.
-- Check the hostname, port, credentials, and connection settings.
-- Confirm that firewall rules permit the connection.
-
-### Downloaded movies are not imported
-
-- Check the download client's reported file path.
-- Verify that Radarr has permission to access the download and library folders.
-- Review remote path mappings if the applications use different paths.
-- Check the application logs for import errors.
-
-### Movies are not appearing in search results
-
-- Verify the indexer configuration.
-- Check the movie's monitoring settings.
-- Review quality profiles and release restrictions.
-- Confirm that the configured indexers are available and working.
-
-### Radarr cannot access the movie library
-
-- Check folder permissions.
-- Verify the configured root folder.
-- Confirm that the library path exists and is accessible to the Radarr process.
-
-For further assistance, consult the official documentation and support resources.
-
----
-
-## 🔐 Security Recommendations
-
-- Download Radarr from official project resources.
-- Keep Radarr and its dependencies updated.
-- Use strong credentials where authentication is available.
-- Avoid exposing the web interface directly to the public internet without appropriate security controls.
-- Restrict access to trusted users and networks.
-- Back up your configuration and database before major changes.
-
----
-
-## ❓ Frequently Asked Questions
-
-### What is Radarr?
-
-Radarr is an open-source movie collection manager that automates supported movie search, download management, file importing, organization, and quality upgrades.
-
-### Is Radarr available for Windows?
-
-Yes. Radarr provides Windows installation options. Consult the official installation guide for the appropriate package.
-
-### Does Radarr support Linux and macOS?
-
-Yes. Radarr offers installation options for supported Linux distributions and macOS systems.
-
-### Can Radarr automatically organize movie files?
-
-Yes. When configured correctly, Radarr can import completed downloads and organize them according to your library and media management settings.
-
-### Can Radarr upgrade movie quality?
-
-Yes. You can configure quality profiles and upgrade preferences so Radarr can seek better-quality releases when matching releases become available.
-
-### Does Radarr require a download client?
-
-For automated download workflows, Radarr generally needs a compatible download client and appropriately configured indexers.
-
-### Where can I find official documentation?
-
-Visit the official project repository and the Radarr installation and documentation resources listed above.
-
----
-
-## 🔗 Official Resources
-
-- **Website:** https://radarr.video/
-- **GitHub Repository:** https://github.com/Radarr/Radarr
-- **Releases:** https://github.com/Radarr/Radarr/releases
-- **Installation Guide:** https://wiki.servarr.com/radarr/installation
-- **Support:** https://radarr.video/support
-
----
-
-## 🔎 Search Keywords
-
-Radarr, Radarr movie manager, Radarr movie collection manager, movie library management, automated movie organization, movie download management, media server software, movie quality upgrades, Radarr Windows, Radarr Linux, Radarr macOS, open-source movie management software, personal media library, movie metadata management, Radarr installation guide.
-
----
-
-## 📜 License
-
-Radarr is distributed under the **GNU General Public License v3.0 (GPL-3.0)**. Refer to the official repository for the license text and project details.
-
----
-
-<p align="center">
-  <strong>Radarr — A Smarter Way to Manage Your Movie Collection 🎬</strong>
-</p>
+Regularly reviewing inactive connections, outdated server profiles, and unnecessary active sessions helps maintain an organized RDP management environment and reduces avoidable administrative overhead.
